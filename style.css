@@ -15,16 +15,18 @@
 }
 
 body {
+  overflow: hidden;
+  position: relative;
   height: 100vh;
   background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 }
 
 :root {
-  --ScissorsGradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
-  --PaperGradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
-  --RockGradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
-  --LizardGradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
-  --Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+  --ScissorsGradient: linear-gradient(0deg, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  --PaperGradient: linear-gradient(0deg, rgb(72, 101, 244), rgb(86, 113, 245));
+  --RockGradient: linear-gradient(0deg, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --LizardGradient: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+  --Cyan: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
 
   --DarkText: hsl(229, 25%, 31%);
   --ScoreText: hsl(229, 64%, 46%);
@@ -35,7 +37,8 @@ body {
   max-width: 1100px;
   width: 90%;
   margin: auto;
-  margin-top: 50px;
+  padding-top: 50px;
+
 }
 
 .scoreboard {
@@ -45,6 +48,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 900px;
+  width: 80%;
+  margin: auto;
 }
 
 .title > h1:not(first-child) {
@@ -66,9 +72,230 @@ body {
 }
 
 .score-number {
-  font-size: 46px;
+  font-size: 50px;
 }
 
 .dark-text {
   color: var(--DarkText);
+}
+
+.triangle {
+  width: fit-content;
+  margin: auto;
+  position: relative;
+}
+
+
+.game-board {
+  margin-top: 100px;
+}
+
+.game-board-1 {
+  margin-top: 200px;
+}
+
+.game-board-1 .play-option-back {
+  padding: 24px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.play-option-back-ring {
+  position: absolute;
+  width: calc(100% + 40px);
+  height: calc(100% + 48px);
+  top: -20px;
+  left: -20px;
+  border: 20px solid rgba(255, 255, 255, 0.178);
+  border-radius: 50%;
+  display: none;
+}
+
+.game-board-1 .play-option-back:hover .play-option-back-ring {
+  display: block;
+}
+
+.play-option {
+  width: 160px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgb(238, 238, 238);
+  box-shadow: inset 0px 9px 0 0px rgba(199, 199, 199, 0.5);
+}
+
+.play-option > img {
+  width: 38%;
+}
+
+.play-option--paper {
+  top: 0;
+  left: 0;
+  background: var(--PaperGradient);
+  box-shadow: 0px 8px 0px 0px rgb(41 69 195);
+}
+.play-option--scissors {
+  top: 0;
+  left: 100%;
+  background: var(--ScissorsGradient);
+  box-shadow: 0px 8px 0px 0px rgb(199 108 29);
+}
+.play-option--rock {
+  top: 100%;
+  left: 50%;
+  background: var(--RockGradient);
+  box-shadow:0px 8px 0px 0px rgb(155 22 51);
+}
+
+.game-board-2 .play-option-back {
+  top: 100%;
+  left: 50%;
+}
+
+.rules {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  padding: 6px 40px;
+  border: 2px solid hsl(217, 16%, 65%);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.rules:hover {
+  border: 2px solid hsl(217, 16%, 95%);
+  background-color: hsl(217, 16%, 95%);
+}
+.rules:hover span {
+  color: var(--DarkText);
+}
+
+
+.game-board-2 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.my-pick,
+.opponent-pick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-board-2 .play-option-back {
+  display: inline-block;
+  padding: 24px;
+  position: relative;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.opponent-pick .play-option-back,
+.my-pick .play-option-back {
+  display: none;
+}
+
+.opponent-pick .play-option-back--active,
+.my-pick .play-option-back--active {
+  display: inline-block;
+}
+
+.game-board-2 .winner {
+  position: absolute;
+  border-radius: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(transparent 104px, rgba(245, 245, 245, 0.145) 104px, rgba(245, 245, 245, .145) 40%, rgba(245, 245, 245, .095) 30%, rgba(245, 245, 245, .095) 55%, rgba(245, 245, 245, .055) 50%, rgba(245, 245, 245, .055) 100%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.game-board-2 .winner--active {
+  display: block;
+}
+
+.result {
+  align-self: flex-end;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+.result--active {
+  display: flex;
+}
+
+.result-text {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: .8rem 4rem;
+  background-color: hsl(217, 16%, 95%);
+  color: var(--DarkText);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  color: red;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.589);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay--active {
+  display: flex;
+}
+
+.modal {
+  background-color: white;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.modal-header span{
+  color: black;
+  font-size: 30px;
+}
+
+.modal-header svg {
+  cursor: pointer;
+} 
+
+.modal-header svg:hover path {
+  opacity: 1;
+} 
+
+
+.game-board {
+  display: none;
+}
+
+.game-board--active {
+  display: flex;
 }
