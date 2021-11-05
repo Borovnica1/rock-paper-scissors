@@ -274,6 +274,7 @@ body {
   padding: 30px;
   border-radius: 5px;
   width: 90%;
+  max-width: 500px;
 }
 
 .modal-header {
