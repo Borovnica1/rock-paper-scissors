@@ -14,20 +14,128 @@
 
     <title>Rock, Paper, Scissors</title>
 
-    Score Rules You Picked The House Picked You Win You Lose Play Again
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="attribution">Coded by <a href="#">Your Name Here</a>.</div>
+    <div class="container">
+      <header class="scoreboard">
+        <div class="title">
+          <h1>ROCK</h1>
+          <h1>PAPER</h1>
+          <h1>SCISSORS</h1>
+        </div>
+        <div class="score">
+          <span class="score-text">SCORE</span>
+          <span class="score-number dark-text">0</span>
+        </div>
+      </header>
+
+      <div class="game-board game-board-1 game-board--active">
+        <div class="triangle">
+          <img src="images/bg-triangle.svg" alt="Triangle svg">
+
+
+          <div class="play-option-back play-option--paper" data-sign="paper">
+            <div class="play-option-back-ring"></div>
+            <div class="play-option">
+              <img src="images/icon-paper.svg" alt="paper svg">
+            </div>
+          </div>
+  
+          <div class="play-option-back play-option--scissors" data-sign="scissors">
+            <div class="play-option-back-ring"></div>
+            <div class="play-option">
+              <img src="images/icon-scissors.svg" alt="scissors svg">
+            </div>
+          </div>
+          <div class="play-option-back play-option--rock" data-sign="rock">
+            <div class="play-option-back-ring"></div>
+            <div class="play-option">
+              <img src="images/icon-rock.svg" alt="rock svg">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-board game-board-2 ">
+        <div class="my-pick">
+          <h2 class="pick-text">YOU PICKED</h2>
+          <div class="play-option-back play-option--paper" data-sign='paper'>
+            <div class="winner"></div>
+            <div class="play-option-back-ring"></div>
+            <div class="play-option">
+              <img src="images/icon-paper.svg" alt="paper svg">
+            </div>
+          </div>
+          <div class="play-option-back play-option--scissors" data-sign='scissors'>
+            <div class="winner"></div>
+            <div class="play-option-back-ring"></div>
+            <div class="play-option">
+              <img src="images/icon-scissors.svg" alt="scissors svg">
+            </div>
+          </div>
+          <div class="play-option-back play-option--rock" data-sign='rock'>
+            <div class="winner"></div>
+            <div class="play-option-back-ring"></div>
+            <div class="play-option">
+              <img src="images/icon-rock.svg" alt="rock svg">
+            </div>
+          </div>
+        </div>
+
+        <div class="result">
+          <span class="result-text">YOU WIN</span>
+          <btn class="btn btn-text play-again">PLAY AGAIN</btn>
+        </div>
+
+        <div class="opponent-pick">
+          <h2 class="pick-text">THE HOUSE PICKING</h2>
+          <div class="play-option-back play-option--paper" data-sign='paper'>
+            <div class="winner"></div>
+            <div class="play-option-back-ring"></div>
+            <div class="play-option">
+              <img src="images/icon-paper.svg" alt="paper svg">
+            </div>
+          </div>
+          <div class="play-option-back play-option--scissors" data-sign='scissors'>
+            <div class="winner"></div>
+            <div class="play-option-back-ring"></div>
+            <div class="play-option">
+              <img src="images/icon-scissors.svg" alt="scissors svg">
+            </div>
+          </div>
+          <div class="play-option-back play-option--rock" data-sign='rock'>
+            <div class="winner"></div>
+            <div class="play-option-back-ring"></div>
+            <div class="play-option">
+              <img src="images/icon-rock.svg" alt="rock svg">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="rules">
+      <span>RULES</span>
+    </div>
+
+    <div class="overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <span>RULES</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path fill="#3B4262" fill-rule="evenodd" d="M16.97 0l2.122 2.121-7.425 7.425 7.425 7.425-2.121 2.12-7.425-7.424-7.425 7.425L0 16.97l7.425-7.425L0 2.121 2.121 0l7.425 7.425L16.971 0z" opacity=".25"/></svg>
+        </div>
+        <img src="images/image-rules.svg" alt="rules svg">
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
